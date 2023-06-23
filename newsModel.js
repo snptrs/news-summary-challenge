@@ -11,7 +11,7 @@ class NewsModel {
     news.response.results.forEach((item) => {
       const newsObject = {
         date: item.webPublicationDate,
-        headline: item.webTitle,
+        headline: item.fields.headline,
         url: item.webUrl,
         image: item.fields.thumbnail,
       };
