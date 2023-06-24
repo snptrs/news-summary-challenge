@@ -30,11 +30,18 @@ class NewsView {
 
     const newArticles = this.model.getNews();
 
-    newArticles.forEach((article) => {
-      let div = document.createElement("div");
-      div.classList.add("article");
-      div.textContent = article.headline;
-      this.mainContainer.append(div);
+    newArticles.forEach((art) => {
+      const articleEl = document.createElement("article");
+
+      const imageEl = new Image(300);
+      imageEl.src = art.image;
+      articleEl.appendChild(imageEl);
+
+      let textEl = document.createElement("div");
+      textEl.textContent = art.headline;
+      articleEl.appendChild(textEl);
+
+      this.mainContainer.append(articleEl);
     });
   }
 
