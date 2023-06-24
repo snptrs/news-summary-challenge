@@ -1,0 +1,45 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  display: flex;
+  padding: 20px;
+  background: #124559;
+  height: 60px;
+  color: #ffffff;
+  align-items: center;
+}
+
+#news-container {
+  padding: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  max-width: 1300px;
+  gap: 20px;
+}
+
+article {
+  width: 300px;
+  background: #cfddc8;
+  transition: transform 0.2s;
+}
+
+article div {
+  padding: 12px;
+  font-weight: 200;
+  font-size: 14;
+}
+
+article:hover {
+  transform: scale(1.05);
+}
+
+header h1 {
+  font-weight: 600;
+  font-size: 34px;
+  color: #ffffff;
+}
