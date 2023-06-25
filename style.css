@@ -28,10 +28,14 @@ article {
   transition: transform 0.2s;
 }
 
-article div {
+article div.headline {
+  display: flex;
   padding: 12px;
   font-weight: 200;
   font-size: 14;
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 article:hover {
@@ -42,4 +46,27 @@ header h1 {
   font-weight: 600;
   font-size: 34px;
   color: #ffffff;
+}
+
+div.buttons {
+  display: flex;
+  padding: 12px;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+a.button {
+  background-color: #124559;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 8px 14px;
+  transition-duration: 0.4s;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a.button:hover {
+  background-color: #598392;
 }
