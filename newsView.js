@@ -3,6 +3,14 @@ class NewsView {
     this.model = model;
     this.client = client;
     this.mainContainer = document.querySelector("#news-container");
+
+    this.searchEl = document.querySelector("#search");
+    this.searchEl.addEventListener("keyup", (event) => {
+      if (event.key === "Enter") {
+        this.displayNewsFromAPI();
+        this.searchEl.value = "";
+      }
+    });
   }
 
   displayNewsFromAPI() {
@@ -13,7 +21,8 @@ class NewsView {
       },
       () => {
         this.displayError();
-      }
+      },
+      this.searchEl.value
     );
   }
 
@@ -32,14 +41,25 @@ class NewsView {
 
     newArticles.forEach((art) => {
       const articleEl = document.createElement("article");
+      articleEl.classList.add("article");
 
       const imageEl = new Image(300);
       imageEl.src = art.image;
       articleEl.appendChild(imageEl);
 
-      let textEl = document.createElement("div");
+      const textEl = document.createElement("div");
       textEl.textContent = art.headline;
+      textEl.classList.add("headline");
       articleEl.appendChild(textEl);
+
+      const buttonsEl = document.createElement("div");
+      buttonsEl.classList.add("buttons");
+      const readMore = document.createElement("a");
+      readMore.href = art.url;
+      readMore.textContent = "Read article";
+      readMore.classList.add("button");
+      buttonsEl.appendChild(readMore);
+      articleEl.appendChild(buttonsEl);
 
       this.mainContainer.append(articleEl);
     });

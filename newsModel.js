@@ -8,6 +8,7 @@ class NewsModel {
   }
 
   setNews(news) {
+    this.news = [];
     news.response.results.forEach((item) => {
       const newsObject = {
         date: item.webPublicationDate,
